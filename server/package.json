@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "eslint src/ && babel-node test/",
-    "eslint": "eslint src/"
+    "test": "babel-node test/index.js",
+    "lint": "eslint src/"
   },
   "author": "AscaL",
   "license": "MIT",
