@@ -4,8 +4,6 @@ import morgan from 'morgan';
 
 import { logger } from './util/logger';
 
-console.log('logger:', logger);
-
 const app = express();
 
 app.use(morgan('combined', { stream: logger.stream }));
