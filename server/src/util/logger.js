@@ -7,7 +7,7 @@ export const logger = new winston.Logger({
       colorize: true,
       timestamp: true,
       prettyPrint: true,
-      lavel: 'experts-serer',
+      label: 'experts-server',
     }),
   ],
 });
