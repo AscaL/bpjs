@@ -2,7 +2,7 @@ import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
 
 import {User} from '../db'
-import {hash} from '../ util'
+import {hash} from '../util'
 
 passport.use(new LocalStrategy(async (login, password, done) => {
   // find all users with matching logins
@@ -15,7 +15,7 @@ passport.use(new LocalStrategy(async (login, password, done) => {
     return done(null, false);
   }
   return done(null, user);
-  });
+  })
 );
 
 passport.serializeUser((user, done) => {

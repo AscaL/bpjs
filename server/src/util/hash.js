@@ -1,4 +1,4 @@
-import crypto from 'crypto''
+import crypto from 'crypto'
 
 import {auth as authConfig} from'../../config';
 
