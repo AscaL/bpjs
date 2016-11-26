@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "babel-node test/index.js",
+    "test": "NODE_ENV=testing node test/index.js | tap-spec",
     "lint": "eslint src/",
     "db:start": "docker run -d -p 28015:28015 -p 8090:8080 -v $PWD/db:/data --name expertsdb rethinkdb",
     "db:stop": "docker stop expertsdb",
@@ -40,6 +40,7 @@
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "tap-spec": "^4.1.1",
     "thinky": "^2.3.8",
     "winston": "^2.2.0"
   }

@@ -1,6 +1,6 @@
 import './passport';
 import {User} from '../db';
-import {asyncRequest} from '../util';
+import {hash, asyncRequest} from '../util';
 
 export default (app) => {
   app.post('/api/register', asyncRequest(async (req, res) => {

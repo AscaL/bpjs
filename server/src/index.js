@@ -1,8 +1,8 @@
 import app from './app';
-import { logger } from './util/logger';
+import { logger } from './util';
 import {thinky} from './db';
 
-thinky.dbReady() .then(() => {
+thinky.dbReady().then(() => {
   logger.info('Database ready, starting server...');
   app.listen(8080, function () {
     const host = this.address().address;

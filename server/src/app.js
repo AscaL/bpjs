@@ -16,7 +16,7 @@ app.use(morgan('combined', { stream: logger.stream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cookieParser);
+app.use(cookieParser());
 
 app.use(session({
   secret: authConfig.sessionSecret,
@@ -28,14 +28,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session())
 
-setupAuthRoutes(app);
-
 app.get('/', (req, res) => {
   res.send('Hello World!!');
 });
 
-app.use((err, req, res) => {
-  logger.error(err.stack);
+setupAuthRoutes(app);
+
+app.use((err, req, res, next) => {
+  logger.error('unhandled application error: ', err);
   res.status(500).send(err);
 });
 

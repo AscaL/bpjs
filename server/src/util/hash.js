@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-import {auth as authConfig} from'../../config';
+import {auth as authConfig} from '../../config';
 
 export const hash = (str) => {
   const sum = crypto.createHash('sha256');
