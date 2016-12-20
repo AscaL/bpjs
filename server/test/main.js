@@ -1,32 +1,38 @@
+// npm packages
 import test from 'tape';
-import request from 'supertest';
 
-import app from '../src/app'
+// our packages
+import {db as dbConfig} from '../config';
+import {thinky, r} from '../src/db';
 
-test('GET /', (t) => {
-  request(app).get('/')
-  .expect(200)
-  .expect('Content-Type', /text\/html/)
-  .end((err, res) =>{
-    const expectedBody = 'Hello World!!';
-    const actualBody = res.text;
+// tests
+import core from './core';
+import register from './register';
+import login from './login';
+//import user from './user';
+//import question from './question';
 
-    t.error(err, 'No error');
-    t.equal(actualBody, expectedBody, 'Retrive body');
-    t.end();
+export default (reqlite) => {
+  thinky.dbReady().then(() => {
+    // clean the database
+    test(async (t) => {
+      await r.db(dbConfig.db).table('User').delete();
+      await r.db(dbConfig.db).table('Question').delete();
+      t.end();
+    });
+
+    // execute tests
+    core(test);
+    register(test);
+    login(test);
+//    user(test);
+//    question(test);
+
+    // close db connections
+    test((t) => {
+      setImmediate(() => r.getPoolMaster().drain());
+      reqlite.stop();
+      t.end();
+    });
   });
-});
-
-test('404 on nonexistant URL', (t) => {
-  request(app).get('/GETShouldFailOnRandomURL')
-  .expect(404)
-  .expect('Content-Type', /texte\/html/)
-  .end((err, res) => {
-    const expectedBody = 'Cannot GET /GETShouldFailOnRandomURL\n';
-    const actualBody = res.text
-
-    t.error(err, "No error");
-    t.equal(actualBody, expectedBody, 'Retrieve Body');
-    t.end();
-  })
-})
+};

@@ -1,4 +1,4 @@
-import {thinky} from './thinky'
+import {thinky} from './thinky';
 
 export const Question = thinky.createModel('Question', {
   text: thinky.type.string().required(),
@@ -9,5 +9,6 @@ export const Question = thinky.createModel('Question', {
       user: thinky.type.string().required(),
       answer: thinky.type.string().required(),
     })
-  ),
-})
+  ).default([]),
+  owner: thinky.type.string().required(),
+});
