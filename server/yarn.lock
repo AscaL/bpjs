@@ -787,7 +787,7 @@ chokidar@^1.0.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
-circular-json@^0.3.0:
+circular-json@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.1.tgz#be8b36aefccde8b3ca7aa2d6afc07a37242c0d2d"
 
@@ -1336,10 +1336,10 @@ finalhandler@0.5.0:
     unpipe "~1.0.0"
 
 flat-cache@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-1.2.1.tgz#6c837d6225a7de5659323740b36d5361f71691ff"
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-1.2.2.tgz#fa86714e72c21db88601761ecf2f555d1abc6b96"
   dependencies:
-    circular-json "^0.3.0"
+    circular-json "^0.3.1"
     del "^2.0.2"
     graceful-fs "^4.1.2"
     write "^0.2.1"
@@ -1887,8 +1887,8 @@ jsonify@~0.0.0:
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
 jsonpointer@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.0.tgz#6661e161d2fc445f19f98430231343722e1fcbd5"
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
 
 jsonwebtoken@^7.0.0:
   version "7.2.1"
@@ -2072,8 +2072,8 @@ mute-stream@0.0.5:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.5.tgz#8fbfabb0a98a253d3184331f9e8deb7372fac6c0"
 
 nan@^2.3.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.4.0.tgz#fb3c59d45fe4effe215f0b890f8adf6eb32d2232"
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.5.0.tgz#aa8f1e34531d807e9e27755b234b4a6ec0c152a8"
 
 natural-compare@^1.4.0:
   version "1.4.0"

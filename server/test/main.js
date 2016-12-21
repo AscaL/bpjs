@@ -9,7 +9,7 @@ import {thinky, r} from '../src/db';
 import core from './core';
 import register from './register';
 import login from './login';
-//import user from './user';
+import user from './user';
 //import question from './question';
 
 export default (reqlite) => {
@@ -25,7 +25,7 @@ export default (reqlite) => {
     core(test);
     register(test);
     login(test);
-//    user(test);
+    user(test);
 //    question(test);
 
     // close db connections
