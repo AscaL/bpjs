@@ -5,27 +5,27 @@ import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import passport from 'passport';
 import morgan from 'morgan';
-//import cors from 'cors';
+// import cors from 'cors';
 
 // our packages
-import {logger} from './util';
-import {auth as authConfig} from '../config';
+import { logger } from './util';
+import { auth as authConfig } from '../config';
 import setupAuthRoutes from './auth';
 import setupUserRoutes from './user';
-//import setupQuestionRoutes from './question';
+// import setupQuestionRoutes from './question';
 
 // init app
 const app = express();
 
 // setup logging
-app.use(morgan('combined', {stream: logger.stream}));
+app.use(morgan('combined', { stream: logger.stream }));
 
 // setup CORS
-//app.use(cors());
+// app.use(cors());
 
 // add body parsing
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // add cookie parsing
 app.use(cookieParser());
@@ -35,7 +35,7 @@ app.use(session({
   secret: authConfig.sessionSecret,
   resave: false,
   saveUninitialized: true,
-  cookie: {secure: true},
+  cookie: { secure: true },
 }));
 
 // add passport.js
@@ -52,7 +52,7 @@ setupAuthRoutes(app);
 // setup user routes
 setupUserRoutes(app);
 // setup question routes
-//setupQuestionRoutes(app);
+// setupQuestionRoutes(app);
 
 // catch all unhandled errors
 app.use((err, req, res, next) => {

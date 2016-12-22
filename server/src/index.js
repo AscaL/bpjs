@@ -1,6 +1,6 @@
 import app from './app';
 import { logger } from './util';
-import {thinky} from './db';
+import { thinky } from './db';
 
 thinky.dbReady().then(() => {
   logger.info('Database ready, starting server...');
@@ -9,7 +9,7 @@ thinky.dbReady().then(() => {
     const port = this.address().port;
     logger.info(`Experts server is listening at http://${host}:${port}`);
   });
-})
+});
 
 process.on('uncaughtExcepion', err => logger.error('uncaughtExcepion: ', err));
 process.on('unhandledRejection', err => logger.error('unhandledRejection: ', err));

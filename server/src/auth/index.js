@@ -8,4 +8,4 @@ export default (app) => {
   register(app);
 };
 
-export {loginTaken} from './register';
+export { loginTaken } from './register';

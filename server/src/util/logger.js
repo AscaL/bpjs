@@ -5,11 +5,11 @@ export const logger = new winston.Logger({
     new winston.transports.Console({
       level: do {
         if (process.env.NODE_ENV === 'testing') {
-          'error'
+          'error';
         } else if (process.env.NODE_ENV === 'production') {
-          'info'
+          'info';
         } else {
-          'debug'
+          'debug';
         }
       },
       colorize: true,

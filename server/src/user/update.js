@@ -2,17 +2,17 @@
 import passport from 'passport';
 
 // our packages
-import {loginTaken} from '../auth';
-import {User} from '../db';
-import {hash, asyncRequest} from '../util';
+import { loginTaken } from '../auth';
+import { User } from '../db';
+import { hash, asyncRequest } from '../util';
 
 export default (app) => {
-  app.post('/api/user/:id', passport.authenticate('jwt', {session: false}), asyncRequest(async (req, res) => {
-    const {login, password, passwordRepeat} = req.body;
+  app.post('/api/user/:id', passport.authenticate('jwt', { session: false }), asyncRequest(async (req, res) => {
+    const { login, password, passwordRepeat } = req.body;
 
     // check if user is changing his own profile
     if (req.user.id !== req.params.id) {
-      res.status(403).send({error: 'Not enough rights to change other user profile!'});
+      res.status(403).send({ error: 'Not enough rights to change other user profile!' });
       return;
     }
 
@@ -20,13 +20,13 @@ export default (app) => {
     try {
       user = await User.get(req.params.id);
     } catch (e) {
-      res.status(400).send({error: 'User does not exist'});
+      res.status(400).send({ error: 'User does not exist' });
       return;
     }
 
     // check if user exists
     if (!user) {
-      res.status(400).send({error: 'User does not exist'});
+      res.status(400).send({ error: 'User does not exist' });
       return;
     }
 
@@ -42,13 +42,13 @@ export default (app) => {
 
     // check passwords for match
     if (passwordChanged && password !== passwordRepeat) {
-      res.status(400).send({error: 'Passwords do not match!'});
+      res.status(400).send({ error: 'Passwords do not match!' });
       return;
     }
 
     // check if new login is taken
     if (loginChanged && await loginTaken(login)) {
-      res.status(400).send({error: 'Login already taken!'});
+      res.status(400).send({ error: 'Login already taken!' });
       return;
     }
 
